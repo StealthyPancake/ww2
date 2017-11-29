@@ -1,0 +1,149 @@
+h2.ui.header.divided {
+  text-align: center;
+  margin-top: 50px;
+}
+
+h2.ui.header.divided:before, h2.ui.header.divided:after {
+  content: '';
+  padding: 0 10px;
+  border-bottom: 3px solid #FFDB58;
+  line-height: 0.1em;
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 10px;
+  margin: 0 10px;
+}
+
+@media (max-width: 430px) {
+  h2.ui.header.divided:before, h2.ui.header.divided:after {
+    padding: 0;
+    border: none;
+    width: 0;
+  }
+}
+
+@media (min-width: 430px) {
+  .recharts-wrapper {
+    margin-left: -2em !important;
+  }
+}
+
+.weapon-card {
+  background-color: #FFDB58;
+  color: white;
+  display: inline-block;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  font-weight: bold;
+  font-size: 20px;
+  width: 120px;
+  height: 100px;
+  line-height: 100px;
+  margin-right: 20px;
+  margin-top: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.fixed.menu .ww2 {
+  margin-left: 10px;
+}
+
+.ui.inverted.menu .item a {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.ww2 {
+  position:relative;
+  background-color:white;
+  padding: 10px;
+  color: #FFDB58;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.ww2:before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: inline;
+  border-style: solid;
+  border-width: 40px 16px 0 0;
+  border-color: transparent white transparent transparent;
+  position: absolute;
+  left: -16px;
+  bottom: 0;
+}
+
+.ww2:after {
+  content: '';
+  width: 0;
+  height: 0;
+  display: inline;
+  border-style: solid;
+  border-width: 0 0 40px 16px;
+  border-color: transparent transparent transparent white;
+  position: absolute;
+  right: -16px;
+  top: 0;
+}
+
+.ww2-sub {
+  position:relative;
+  background-color:#FFDB58;
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.87);
+  height: 40px;
+}
+
+.ww2-sub:before {
+  content: '';
+  width: 0;
+  height: 0;
+  display: inline;
+  border-style: solid;
+  border-width: 40px 16px 0 0;
+  border-color: transparent #FFDB58 transparent transparent;
+  position: absolute;
+  left: -16px;
+  bottom: 0;
+}
+
+.ww2-sub:after {
+  content: '';
+  width: 0;
+  height: 0;
+  display: inline;
+  border-style: solid;
+  border-width: 0 0 40px 16px;
+  border-color: transparent transparent transparent #FFDB58;
+  position: absolute;
+  right: -16px;
+  top: 0;
+}
+
+.ww2.big {
+  margin-left: 24px;  
+}
+
+.ww2.big, .ww2-sub.big {
+  height: 60px;
+  font-weight: bold;
+  font-size: 30px;
+  display: inline-block;
+  margin-right: 28px;
+}
+
+.ww2.big:before, .ww2-sub.big:before {
+  border-width: 60px 24px 0 0;
+  left: -24px;
+}
+
+.ww2.big:after, .ww2-sub.big:after {
+  border-width: 0 0 60px 24px;
+  right: -24px;
+}

@@ -1,0 +1,27 @@
+{
+  "homepage": "https://stealthypancake.github.io/ww2",
+  "name": "ww2",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17",
+    "react-scrollchor": "^4.0.0",
+    "recharts": "^1.0.0-beta.2",
+    "semantic-ui": "^2.2.13",
+    "semantic-ui-react": "^0.76.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "gulp build-ui && react-scripts build",
+    "watch": "gulp watch-ui",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
+  }
+}
