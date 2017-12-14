@@ -49,10 +49,17 @@ class App extends Component {
           </Message.Header>
           Here's what's coming next in order:
           <ul>
-            <li>M30 Rifle Bullet Stats</li>
             <li>Silencer Stats</li>
             <li>Advanced Rifiling</li>
             <li>Time to Kill Graph</li>
+          </ul>
+
+          Features recently added:
+          <ul>
+            <li>Winter Siege Weapon Data</li>
+            <li>M30 Rifle Bullet Data</li>
+            <li>Hardcore Data</li>
+            <li>Pistol Data</li>
           </ul>
         </Message>
     </Container>

@@ -57,6 +57,7 @@ export const processData = (data) => {
             hardcoreT2kProfile,
             ammo: weapon.ammo,
             extAmmo: weapon.extAmmo,
+            notes: weapon.notes,
             1: shots[1],
             2: shots[2],
             3: shots[3],
@@ -90,3 +91,33 @@ export const processHardcore = (data) => {
         }
     });
 };
+
+export const processSniperData = (data) => {
+    return data
+    .map(weapon => {
+        let shots = {head: 1, chest: 1, ab: 1, legs: 1, feet: 1};
+        let damage = weapon.damage[0];
+        let multiplier = weapon.multiplier;
+
+        shots.head = calcShotsToKill(damage.amount, multiplier.head, 100);
+        shots.chest = calcShotsToKill(damage.amount, multiplier.chest, 100);
+        shots.ab = calcShotsToKill(damage.amount, multiplier.ab, 100);
+        shots.legs = calcShotsToKill(damage.amount, multiplier.legs, 100);
+        shots.feet = calcShotsToKill(damage.amount, multiplier.feet, 100);
+
+        return {
+            name: weapon.name,
+            rof: weapon.rof,
+            damage: weapon.damage,
+            head: shots.head,
+            chest: shots.chest,
+            ab: shots.ab,
+            legs: shots.legs,
+            feet: shots.feet
+        }
+    });
+}
+
+const calcShotsToKill = (amount, multiplier, health) => {
+    return Math.ceil(health / (amount * multiplier));
+}

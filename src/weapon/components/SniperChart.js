@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
+import {Checkbox} from 'semantic-ui-react';
 import {Bar, BarChart, Legend, Tooltip, XAxis, YAxis} from 'recharts';
-import sniperData from '../sniperData';
+import sniperData, {m30RifleData} from '../sniperData';
+import {processSniperData} from './WeaponDataHelper';
+
+const data = processSniperData(sniperData);
+const dataWithM30 = processSniperData([...sniperData, m30RifleData]);
 
 class SniperChart extends Component {
     constructor(props) {
         super(props);
-        this.fitParentContainer = this.fitParentContainer.bind(this);
 
         this.state = {
             containerWidth: null,
-            data: this.processData()
+            data: data
         }
     }
 
@@ -22,7 +26,15 @@ class SniperChart extends Component {
         window.addEventListener('resize', this.fitParentContainer);
     }
 
-    fitParentContainer() {
+    toggleM30 = () => {
+        if(this.state.data === data) {
+            this.setState({data: dataWithM30});
+        } else {
+            this.setState({data: data});
+        }
+    }
+
+    fitParentContainer = () => {
         const { containerWidth } = this.state;
         let currentContainerWidth = window.innerWidth - 20;
         currentContainerWidth = Math.max(300, currentContainerWidth);
@@ -31,36 +43,6 @@ class SniperChart extends Component {
         const shouldResize = containerWidth !== currentContainerWidth;
 
         if(shouldResize) this.setState({containerWidth: currentContainerWidth});
-    }
-
-    calcShotsToKill(amount, multiplier, health) {
-        return Math.ceil(health / (amount * multiplier));
-    }
-
-    processData() {
-        return sniperData
-            .map(weapon => {
-                let shots = {head: 1, chest: 1, ab: 1, legs: 1, feet: 1};
-                let damage = weapon.damage[0];
-                let multiplier = weapon.multiplier;
-
-                shots.head = this.calcShotsToKill(damage.amount, multiplier.head, 100);
-                shots.chest = this.calcShotsToKill(damage.amount, multiplier.chest, 100);
-                shots.ab = this.calcShotsToKill(damage.amount, multiplier.ab, 100);
-                shots.legs = this.calcShotsToKill(damage.amount, multiplier.legs, 100);
-                shots.feet = this.calcShotsToKill(damage.amount, multiplier.feet, 100);
-
-                return {
-                    name: weapon.name,
-                    rof: weapon.rof,
-                    damage: weapon.damage,
-                    head: shots.head,
-                    chest: shots.chest,
-                    ab: shots.ab,
-                    legs: shots.legs,
-                    feet: shots.feet
-                }
-            });
     }
 
     render () {
@@ -81,6 +63,10 @@ class SniperChart extends Component {
                 <Bar dataKey="legs" xAxisId="bottom" fill="#FFDB58" />
                 <Bar dataKey="feet" xAxisId="bottom" fill="#EC732B" />
             </BarChart>
+            <div>
+                <label>Include M30 Drilling Rifle Bullet: </label>
+                <Checkbox toggle onClick={this.toggleM30} style={{marginLeft: 20}} />
+            </div>
             </div>
         )
     }
