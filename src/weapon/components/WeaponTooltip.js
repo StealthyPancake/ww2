@@ -12,6 +12,8 @@ class WeaponTooltip extends Component {
         const ammo = metadata.ammo;
         const extAmmo = metadata.extAmmo;
         const notes = metadata.notes;
+        const ads = metadata.ads;
+        const sprintOut = metadata.sprintOut;
 
         return (
             <div>
@@ -19,6 +21,8 @@ class WeaponTooltip extends Component {
                 {t2kProfile && <p>Time to Kill: {t2kProfile} (ms)</p>}
                 {rof && <p>Rate of Fire: {rof} or {rapidFire} w/ Rapid Fire</p>}
                 {ammo && <p>Ammo: {ammo} {extAmmo && `or ${extAmmo} w/ Ext Mags` } </p>}
+                {ads && <p>Aim Down Sight: {ads} ms</p>}
+                {sprintOut && <p>Sprint Out Time: {sprintOut} ms </p>}
                 {notes && <p>Notes: 
                     <ul>
                         {notes.map(note => <li>{note}</li>)}

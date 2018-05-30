@@ -49,19 +49,19 @@ class SniperChart extends Component {
 
         return (
             <div style={{textAlign:'center'}}>
-            <label>Rate of Fire</label>
-            <BarChart width={this.state.containerWidth} height={300} data={this.state.data} margin={{top: 5, right: 30, left:20, bottom: 5}}>
+            <label>Shots to Kill</label>
+            <BarChart width={this.state.containerWidth} height={600} data={this.state.data} margin={{top: 5, right: 30, left:20, bottom: 5}} layout='vertical'>
                 <Legend />
-                <XAxis type="category" dataKey="name" xAxisId="bottom" orientation="bottom"/>
-                <XAxis type="category" dataKey="rof" xAxisId="top"  orientation="top"/>
-                <YAxis type="number" label={{value: 'Shots To Kill', angle: -90, position: 'left'}} tickCount={3}/>
+                <YAxis yAxisId="left" orientation="left" type="category" dataKey="name"/>
+                <YAxis yAxisId="right" orientation="right" type="category" dataKey="rof" label={{value: 'Rate of Fire (RPM)', angle: 90, position: 'right'}} />
+                <XAxis type="number" orientation="top" tickCount={3}/>
                 <Tooltip />
                 
-                <Bar dataKey="head" xAxisId="bottom" fill="#3D2FA3" />
-                <Bar dataKey="chest" xAxisId="bottom" fill="#39A58A" />
-                <Bar dataKey="ab" xAxisId="bottom" fill="#B3E029" />
-                <Bar dataKey="legs" xAxisId="bottom" fill="#FFDB58" />
-                <Bar dataKey="feet" xAxisId="bottom" fill="#EC732B" />
+                <Bar dataKey="head" yAxisId="left" fill="#3D2FA3" />
+                <Bar dataKey="chest" yAxisId="left" fill="#39A58A" />
+                <Bar dataKey="ab" yAxisId="left" fill="#B3E029" />
+                <Bar dataKey="legs" yAxisId="left" fill="#FFDB58" />
+                <Bar dataKey="feet" yAxisId="left" fill="#EC732B" />
             </BarChart>
             <div>
                 <label>Include M30 Drilling Rifle Bullet: </label>

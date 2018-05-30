@@ -6,6 +6,7 @@ import ShotgunChart from './weapon/components/ShotgunChart';
 import PistolChart from './weapon/components/PistolChart';
 import SniperChart from './weapon/components/SniperChart';
 import WeaponCard from './weapon/components/WeaponCard';
+import SprintOutTable from './weapon/components/SprintOutTable';
 import './App.css';
 
 class App extends Component {
@@ -43,6 +44,10 @@ class App extends Component {
 
       <Header as='h2' className="divided" id='sniper'>Sniper Weapon Data</Header>
       <SniperChart />
+
+      <Header as='h2' className="divided" id='sniper'>Weapon ADS/Sprint out Times</Header>
+      <SprintOutTable />
+      
         <Message info style={{marginTop: 20}}>
           <Message.Header>
             More to Come

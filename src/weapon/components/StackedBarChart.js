@@ -67,7 +67,7 @@ class StackedBarChart extends Component {
                 <XAxis type="number">
                     <Label value="Range (m)" position='insideBottom' offset={0} />
                 </XAxis>
-                <YAxis yAxisId="left" orientation="left" type="category" dataKey="name"/>
+                <YAxis yAxisId="left" orientation="left" type="category" dataKey="name" width={100} />
                 <YAxis yAxisId="right" orientation="right" type="category" dataKey="rof" label={{value: 'Rate of Fire (RPM)', angle: 90, position: 'right'}} />
                 <Tooltip  content={<WeaponTooltip />} />
                 

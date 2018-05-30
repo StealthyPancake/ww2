@@ -147,3 +147,27 @@ h2.ui.header.divided:before, h2.ui.header.divided:after {
   border-width: 0 0 60px 24px;
   right: -24px;
 }
+
+.Pistol {
+  background-color: lightgreen;
+}
+
+.SMG {
+  background-color: lightblue;
+}
+
+.Assault {
+  background-color: lightgoldenrodyellow;
+}
+
+.LMG {
+  background-color: lightsalmon;
+}
+
+.Shotgun {
+  background-color: rgb(255, 202, 122);
+}
+
+.Sniper {
+  background-color: rgb(255, 122, 226);
+}

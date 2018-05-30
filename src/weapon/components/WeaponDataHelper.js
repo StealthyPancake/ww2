@@ -58,6 +58,8 @@ export const processData = (data) => {
             ammo: weapon.ammo,
             extAmmo: weapon.extAmmo,
             notes: weapon.notes,
+            ads: weapon.ads,
+            sprintOut: weapon.sprintOut,
             1: shots[1],
             2: shots[2],
             3: shots[3],
